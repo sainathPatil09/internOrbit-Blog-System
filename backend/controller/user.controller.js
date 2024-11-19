@@ -47,3 +47,56 @@ export const register=async (req, res)=>{
     }
 
 }
+
+export const login = async(req, res)=>{
+    const {email, password, role} = req.body;
+    
+    try {
+        if(!email || !password || !role){
+            return res.status(400).json({Message: "Please fill required field"})
+        }
+        const user = await User.findOne({email}).select("+password");
+        console.log(user);
+
+        if(!user.password){
+            return res.status(400).json({message:"User password is missing"});
+        }
+
+        const isMatch = await bcrypt.compare(password, user.password);
+
+        if(!user || !isMatch){
+            return res.status(400).json({message:"Invalid email or password"})
+        }
+
+        if(user.role !== role){
+            return res.status(400).json({message: `Given role ${role} not found`})
+        }
+
+        let token = await createTokenAndSaveCookies(user._id, res);
+        console.log("Loggin: ", token);
+        return res.status(200).json({message:"User loggedin Succesfully",
+             user:{
+                _id:user._id,
+                name:user.name,
+                password:user.password,
+                role:user.role,
+            },
+            token:token,
+        })
+        
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({error : "Internal server error"});
+    }
+
+}
+
+export const logout = async(req, res)=>{
+    try {
+        res.clearCookie("jwt", {httpOnly: true})
+        res.status(200).json({message: "User logged out Succesfully"})    
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({message: "Internal server error"});
+    }   
+}
