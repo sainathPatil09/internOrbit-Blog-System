@@ -23,3 +23,13 @@ export const isAuthenticated = async(req, res, next)=>{
         return res.status(401).json({error: "User not Authenticated"});
     }
 }
+
+export const isAdmin = (...roles)=>{
+    return (req, res, next)=>{
+        if(!roles.includes(req.user.role)){
+            return res.status(403).json({message: `User with given role ${req.user.role} not allowed`})
+        }
+
+        next()
+    }
+}
