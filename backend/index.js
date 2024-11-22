@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import userRoute from './routes/user.route.js'
+import blogRoute from './routes/blog.route.js'
 import cookieParser from "cookie-parser";
 import fileUpload from "express-fileupload";
 import cors from 'cors'
@@ -36,6 +37,7 @@ try {
 }
 
 app.use("/api/users",userRoute)
+app.use("/api/blogs",blogRoute)
 
 
 //cloudinary 
