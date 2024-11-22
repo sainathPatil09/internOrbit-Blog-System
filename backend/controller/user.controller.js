@@ -100,3 +100,12 @@ export const logout = async(req, res)=>{
         res.status(500).json({message: "Internal server error"});
     }   
 }
+
+
+export const getMyProfile = async(req, res)=>{
+    const user = await req.user;
+    if(!user){
+        res.status(400).json({message: "User not found"})
+    }
+    res.status(200).json(user);
+}
