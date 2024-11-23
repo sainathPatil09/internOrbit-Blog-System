@@ -7,6 +7,7 @@ export const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [profile, setProfile] = useState();
   const [loading, setLoading] = useState(true);
+  const [blogs, setBlogs] = useState()
 
   useEffect(() => {
     const fetchProfile = async () => {
@@ -36,8 +37,22 @@ export const AuthProvider = ({ children }) => {
       }
     };
 
+    const fetchBlogs = async () => {
+      try {
+        const { data } = await axios.get(
+          "http://localhost:4001/api/blogs/all-blogs",
+          { withCredentials: true }
+        );
+        console.log(data)
+        setBlogs(data);
+      } catch (error) {
+        console.log(error)
+      }
+    };
+
     const fetchData = async () => {
       await fetchProfile();
+      await fetchBlogs();
       setLoading(false);
     };
 
@@ -52,6 +67,7 @@ export const AuthProvider = ({ children }) => {
         profile,
         setProfile,
         loading,
+        blogs
       }}
     >
       {children}
