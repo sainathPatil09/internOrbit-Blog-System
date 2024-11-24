@@ -43,16 +43,16 @@ const Navbar = () => {
             <Link className="hover:text-blue-700 font-semibold" to="/">
               HOME
             </Link>
-            <Link className="hover:text-blue-700 font-semibold" to="">
+            <Link className="hover:text-blue-700 font-semibold" to="/blogs">
               BLOGS
             </Link>
-            <Link className="hover:text-blue-700 font-semibold" to="">
+            <Link className="hover:text-blue-700 font-semibold" to="/creators">
               CREATORS
             </Link>
-            <Link className="hover:text-blue-700 font-semibold" to="">
+            <Link className="hover:text-blue-700 font-semibold" to="/about">
               ABOUT
             </Link>
-            <Link className="hover:text-blue-700 font-semibold" to="">
+            <Link className="hover:text-blue-700 font-semibold" to="/contact">
               CONTACT
             </Link>
           </ul>
@@ -64,7 +64,7 @@ const Navbar = () => {
         <div className="space-x-2 hidden md:flex">
           {isAuthenticated && profile?.role === "admin" ? (
             <Link
-              to="/"
+              to="/dashboard"
               className="bg-blue-500 hidden md:flex px-4 py-2 font-semibold text-white rounded-md hover:bg-blue-700"
             >
               DASHBOARD

@@ -11,6 +11,10 @@ import Dashboard from "./pages/Dashboard";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Home from "./components/Home";
+import Blogs from "./pages/Blogs";
+import Creators from "./pages/Creators";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
 
 function App() {
   const location = useLocation();
@@ -36,6 +40,10 @@ function App() {
         <Route path="/register" element={<Register />}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/dashboard" element={<Dashboard />}></Route>
+        <Route path="/blogs" element={<Blogs />}></Route>
+        <Route path="/creators" element={<Creators />}></Route>
+        <Route path="/about" element={<About />}></Route>
+        <Route path="/contact" element={<Contact />}></Route>
       </Routes>
       {!hideNavbarFooter && <Footer/>}
     </>
