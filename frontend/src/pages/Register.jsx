@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { useAuth } from "../context/AuthProvider";
 
 const Register = () => {
   const navigateTo = useNavigate();
+  const { isAuthenticated, setIsAuthenticated, setProfile } = useAuth()
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -50,8 +52,8 @@ const Register = () => {
       );
       console.log(data);
       localStorage.setItem("jwt", data.token);
-      //   setIsAuthenticated(true);
-      //   setProfile(data);
+        setIsAuthenticated(true);
+        setProfile(data);
 
       toast.success(data.message || "User Register Succesfully");
       setName("");

@@ -50,7 +50,7 @@ const SideBar = ({ setComponent }) => {
         >
           <BiSolidLeftArrowAlt className="text-2xl" />
         </div>
-        <div className="text-center">
+        <div className="text-center p-5">
           <img
             className="w-24 h-24 rounded-full mx-auto"
             src={profile?.photo?.url}

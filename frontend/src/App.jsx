@@ -15,6 +15,8 @@ import Blogs from "./pages/Blogs";
 import Creators from "./pages/Creators";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import { Toaster } from "react-hot-toast";
+import UpdateBlog from "./dashboard/UpdateBlog";
 
 function App() {
   const location = useLocation();
@@ -44,7 +46,9 @@ function App() {
         <Route path="/creators" element={<Creators />}></Route>
         <Route path="/about" element={<About />}></Route>
         <Route path="/contact" element={<Contact />}></Route>
+        <Route exact path='/blog/update/:id' element={<UpdateBlog/>} />
       </Routes>
+      <Toaster />
       {!hideNavbarFooter && <Footer/>}
     </>
   );
