@@ -2,10 +2,11 @@ import axios from "axios";
 import React, { useState } from "react";
 import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthProvider";
 
 const Login = () => {
   const navigateTo = useNavigate();
-
+  const { isAuthenticated, setIsAuthenticated, setProfile } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [role, setRole] = useState("");
@@ -30,14 +31,16 @@ const Login = () => {
       console.log(data);
       localStorage.setItem("jwt", data.token);
       toast.success(data.message || "User Logined Succesfully");
-      //   setProfile(data);
-      //   setIsAuthenticated(true);
+        setProfile(data);
+        setIsAuthenticated(true);
 
       setEmail("");
       setPassword("");
       setRole("");
+      setTimeout(() => {
         navigateTo("/");
       window.location.reload();
+      }, 1000);
     } catch (error) {
       console.log(error);
       toast.error(error.response.data.message || "Please fill required fields");
