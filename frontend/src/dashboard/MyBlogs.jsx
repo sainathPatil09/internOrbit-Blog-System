@@ -40,7 +40,7 @@ const MyBlogs = () => {
 
   return (
     <>
-      <div>
+      <div className="bg-white">
         <div className="container mx-auto my-12 p-4">
           <div className="grid gap-6 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 md:ml-20">
             {myBlogs && myBlogs.length > 0 ? (

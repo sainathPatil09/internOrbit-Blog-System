@@ -9,7 +9,7 @@ const Dashboard = () => {
   const [component, setComponent] = useState("My Blogs")
   return (
     <>
-      <div>
+      <div className='bg-white'>
         <div>
           <SideBar component={component} setComponent={setComponent} />
           <div className='md:ml-72'>
