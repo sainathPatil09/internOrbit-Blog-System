@@ -6,7 +6,8 @@ const Blogs = () => {
   const { blogs } = useAuth();
   return (
     <>
-      <div>
+      <div className="bg-blue-50">
+      <div className="h-1 bg-blue-500"></div>
         <div className="w-[88%] justify-between items-center mx-auto p-6">
           <h1 className="text-2xl font-semibold mb-4">All Blogs goes here!</h1>
           

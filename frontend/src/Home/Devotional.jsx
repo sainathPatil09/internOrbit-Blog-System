@@ -9,7 +9,7 @@ const Devotional = () => {
     <>
       <div>
         <div className="w-[88%] justify-between items-center mx-auto p-6">
-          <h1 className="text-2xl font-semibold mb-4">Devotional</h1>
+          <h1 className="text-2xl mb-4 bg-blue-500 text-white font-semibold w-fit px-2 py-1 rounded-lg">Devotional</h1>
           <p className="text-center mb-4">
             The concept of Gods varies widely across different cultures,
             religions and belif system

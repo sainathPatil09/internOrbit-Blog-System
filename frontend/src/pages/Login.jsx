@@ -31,15 +31,15 @@ const Login = () => {
       console.log(data);
       localStorage.setItem("jwt", data.token);
       toast.success(data.message || "User Logined Succesfully");
-        setProfile(data);
-        setIsAuthenticated(true);
+      setProfile(data);
+      setIsAuthenticated(true);
 
       setEmail("");
       setPassword("");
       setRole("");
       setTimeout(() => {
         navigateTo("/");
-      window.location.reload();
+        window.location.reload();
       }, 1000);
     } catch (error) {
       console.log(error);
@@ -48,11 +48,12 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <div className="min-h-screen flex items-center justify-center bg-gray-100 ">
-        <div className="w-full max-w-md p-8 shadow-lg bg-white rounded-md">
+    // <div class="absolute top-0 z-[-2] h-screen w-screen bg-[#000000] bg-[radial-gradient(#ffffff33_1px,#00091d_1px)] bg-[size:20px_20px]"></div>
+    <div className="">
+      <div className="min-h-screen flex items-center justify-center absolute top-0 z-[-2] h-screen w-screen bg-[#000000] bg-[radial-gradient(#ffffff33_1px,#00091d_1px)] bg-[size:20px_20px] p-2">
+        <div className="w-full max-w-md p-8 shadow-sm bg-gray-900 text-white rounded-xl">
           <form onSubmit={handleRegister}>
-            <div className="font-semibold text-xl items-center text-center">
+            <div className="font-semibold text-3xl items-center text-center">
               cilli<span className="text-blue-500">Blog</span>
             </div>
 
@@ -61,7 +62,7 @@ const Login = () => {
             <select
               onChange={(e) => setRole(e.target.value)}
               value={role}
-              className="w-full p-2 rounded-md mb-4 border"
+              className="w-full p-2 rounded-md mb-4 border text-white bg-gray-800"
             >
               <option value="">Select Role</option>
               <option value="user">User</option>
@@ -74,7 +75,7 @@ const Login = () => {
                 type="email"
                 placeholder="Your Email"
                 value={email}
-                className="w-full p-2 rounded-md border"
+                className="w-full p-2 rounded-md border text-white bg-gray-800"
               />
             </div>
             <div className="mb-4">
@@ -83,7 +84,7 @@ const Login = () => {
                 type="password"
                 placeholder="Your Password"
                 value={password}
-                className="w-full p-2 rounded-md border"
+                className="w-full p-2 rounded-md border text-white bg-gray-800"
               />
             </div>
 
@@ -96,7 +97,7 @@ const Login = () => {
 
             <button
               type="submit"
-              className="w-full bg-blue-500 p-2 hover:bg-blue-700 duration-300 rounded-md  text-white"
+              className="w-full font-semibold bg-blue-500 p-2 hover:bg-blue-700 duration-300 rounded-md  text-white"
             >
               Login
             </button>

@@ -29,7 +29,7 @@ const Trending = () => {
   return (
     <>
         <div className=' w-[88%] justify-between items-center mx-auto p-6'>
-      <h1 className='text-2xl font-semibold mb-4'>Trending</h1>
+      <h1 className='text-2xl mb-4 bg-blue-500 text-white font-semibold w-fit px-2 py-1 rounded-lg'>Trending</h1>
       <Carousel responsive={responsive}>
         {blogs && blogs.length > 0 ? (
           blogs.slice(0, 6).map((element) => {

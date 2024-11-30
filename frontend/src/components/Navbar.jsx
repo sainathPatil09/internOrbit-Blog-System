@@ -32,7 +32,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="px-4 py-2 shadow-lg">
+    <nav className="px-4 py-2 shadow-lg bg-blue-50">
       <div className=" flex items-center justify-between w-[88%] mx-auto">
         <div className="font-semibold text-xl">
           cilli<span className="text-blue-500">Blog</span>

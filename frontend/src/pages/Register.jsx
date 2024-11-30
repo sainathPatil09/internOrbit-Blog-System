@@ -72,11 +72,11 @@ const Register = () => {
   };
 
   return (
-    <div>
-      <div className="min-h-screen flex items-center justify-center bg-gray-100 ">
-        <div className="w-full max-w-md p-8 shadow-lg bg-white rounded-md">
+    <div className="min-h-screen flex items-center justify-center absolute top-0 z-[-2] h-screen w-screen bg-[#000000] bg-[radial-gradient(#ffffff33_1px,#00091d_1px)] bg-[size:20px_20px] p-2">
+      {/* <div className="min-h-screen flex items-center justify-center bg-gray-900 text-white rounded-xl"> */}
+        <div className="w-full max-w-md p-8 h- shadow-lg bg-gray-900 text-white rounded-xl">
           <form onSubmit={handleRegister}>
-            <div className="font-semibold text-xl items-center text-center">
+            <div className="font-semibold text-3xl items-center text-center">
               cilli<span className="text-blue-500">Blog</span>
             </div>
 
@@ -85,7 +85,7 @@ const Register = () => {
             <select
               onChange={(e) => setRole(e.target.value)}
               value={role}
-              className="w-full p-2 rounded-md mb-4 border"
+              className="w-full p-2 rounded-md mb-4 border text-white bg-gray-800"
             >
               <option value="">Select Role</option>
               <option value="user">User</option>
@@ -98,7 +98,7 @@ const Register = () => {
                 type="text"
                 placeholder="Your Name"
                 value={name}
-                className="w-full p-2 rounded-md border"
+                className="w-full p-2 rounded-md border text-white bg-gray-800"
               />
             </div>
             <div className="mb-4">
@@ -107,7 +107,7 @@ const Register = () => {
                 type="email"
                 placeholder="Your Email"
                 value={email}
-                className="w-full p-2 rounded-md border"
+                className="w-full p-2 rounded-md border text-white bg-gray-800"
               />
             </div>
             <div className="mb-4">
@@ -116,7 +116,7 @@ const Register = () => {
                 type="number"
                 placeholder="Your Phone Number"
                 value={phone}
-                className="w-full p-2 rounded-md border"
+                className="w-full p-2 rounded-md border text-white bg-gray-800"
               />
             </div>
             <div className="mb-4">
@@ -125,14 +125,14 @@ const Register = () => {
                 type="password"
                 placeholder="Your Password"
                 value={password}
-                className="w-full p-2 rounded-md border"
+                className="w-full p-2 rounded-md border text-white bg-gray-800"
               />
             </div>
 
             <select
               onChange={(e) => setEducation(e.target.value)}
               value={education}
-              className="w-full p-2 rounded-md mb-4 border"
+              className="w-full p-2 rounded-md mb-4 border text-white bg-gray-800"
             >
               <option value="">Select Education</option>
               <option value="B>E">B.E</option>
@@ -167,13 +167,13 @@ const Register = () => {
 
             <button
               type="submit"
-              className="w-full bg-blue-500 p-2 hover:bg-blue-700 duration-300 rounded-md  text-white"
+              className="w-full font-semibold bg-blue-500 p-2 hover:bg-blue-700 duration-300 rounded-md  text-white"
             >
               Register
             </button>
           </form>
         </div>
-      </div>
+      {/* </div> */}
     </div>
   );
 };

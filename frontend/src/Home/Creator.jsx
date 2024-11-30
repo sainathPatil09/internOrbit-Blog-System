@@ -20,7 +20,7 @@ const Creator = () => {
   return (
     <>
       <div className="w-[88%] justify-between items-center align-middle mx-auto p-6">
-        <h1 className="text-2xl font-semibold mb-4">Popular Creators</h1>
+        <h1 className="text-2xl mb-4 bg-blue-500 text-white font-semibold w-fit px-2 py-1 rounded-lg">Popular Creators</h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4  gap-4 ">
           {admin && admin.length > 0 ? (
             admin.slice(0, 4).map((element) => {

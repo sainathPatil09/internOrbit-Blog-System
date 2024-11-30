@@ -6,7 +6,8 @@ import Creator from '../Home/Creator'
 
 const Home = () => {
   return (
-    <div>
+    <div className='bg-blue-50'>
+      <div className="h-1 bg-blue-500"></div>
       <Hero/>
       <Trending/>
       <Devotional/>

@@ -31,6 +31,7 @@ function App() {
 
   return (
     <>
+    <div className="bg-blue-100">
       {!hideNavbarFooter && <Navbar />}
       <Routes>
         <Route
@@ -50,6 +51,7 @@ function App() {
       </Routes>
       <Toaster />
       {!hideNavbarFooter && <Footer/>}
+      </div>
     </>
   );
 }
