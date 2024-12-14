@@ -92,6 +92,46 @@ const Navbar = () => {
           )}
         </div>
       </div>
+
+
+      {/* {Mobile navbar} */}
+      {
+        show && (
+          <div className='bg-white '>
+            <ul className=' flex flex-col h-screen items-center justify-center space-y-3 md:hidden text-xl '>
+              <Link className='hover:text-blue-700 font-semibold' onClick={() => setshow(!show)} smooth="true" duration={500} offset={-70} activeClass="active" to='/'>HOME</Link>
+              <Link className='hover:text-blue-700 font-semibold' onClick={() => setshow(!show)} smooth="true" duration={500} offset={-70} activeClass="active" to='/blogs'>BLOGS</Link>
+              <Link className='hover:text-blue-700 font-semibold' onClick={() => setshow(!show)} smooth="true" duration={500} offset={-70} activeClass="active" to='/creators'>CREATORS</Link>
+              <Link className='hover:text-blue-700 font-semibold' onClick={() => setshow(!show)} smooth="true" duration={500} offset={-70} activeClass="active" to='/about'>ABOUT</Link>
+              <Link className='hover:text-blue-700 font-semibold' onClick={() => setshow(!show)} smooth="true" duration={500} offset={-70} activeClass="active" to='/contact'>CONTACT</Link>
+              <div className='flex flex-col justify-center items-center gap-2'>
+                {isAuthenticated && profile?.role === 'admin' ? (
+                  <Link to='/dashboard'
+                    className='bg-blue-500  px-4 py-2 font-semibold text-white rounded-md hover:bg-blue-700'>
+                    DASHBOARD
+                  </Link>
+                ) : ("")}
+
+                {!isAuthenticated ? (<Link to='/login'
+                  className='bg-red-500 px-4 py-2 font-semibold text-white rounded-md hover:bg-red-700'>
+                  LOGIN
+                </Link>) : (<div>
+                  <button
+                    onClick={handleLogout}
+                    className='bg-red-500 px-4 py-2 font-semibold text-white rounded-md hover:bg-red-700'>
+
+                    LOGOUT
+                  </button>
+                </div>)}
+
+
+
+              </div>
+
+            </ul>
+          </div>
+        )
+      }
     </nav>
     // <></>
   );
