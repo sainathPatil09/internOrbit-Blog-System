@@ -2,10 +2,13 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import toast from 'react-hot-toast';
 import { useParams } from 'react-router-dom';
+import { useAuth } from '../context/AuthProvider';
 
 const Details = () => {
     const { id } = useParams();
     const [blogs, setBlogs] = useState({})
+    const{profile} = useAuth()
+    console.log(profile)
     useEffect(() => {
 
         const fetchBlog = async () => {

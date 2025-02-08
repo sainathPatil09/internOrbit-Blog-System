@@ -40,7 +40,7 @@ const Hero = () => {
                     <p className="text-lg font-semibold text-gray-800">
                       {element.adminName}
                     </p>
-                    <p className="text-xs text-gray-400">2</p>
+                    <p className="text-xs text-gray-400">{element.category}</p>
                   </div>
                 </div>
               </Link>
