@@ -2,6 +2,7 @@
 import { mongoose } from "mongoose"; 
 import { Blog } from "../models/blog.model.js";
 import { v2 as cloudinary } from 'cloudinary';
+import { Comment } from "../models/comment.model.js";
 
 export const createBlog = async (req, res) => {
   try {
@@ -111,4 +112,39 @@ export const updateBlog=async(req, res)=>{
 
   res.status(200).json(updateBlog)
  
+}
+
+
+export const giveComment = async(req, res)=>{
+  try {
+    const {postId, userId, content, name} = req.body
+    if(!postId || !userId || !content){
+      return res.status(400).json({message: "Please fill comment section"})
+    }
+    // console.log(postId, userId, content, name)
+    const newComment = new Comment({
+      postId, userId, content, name
+    })
+    await newComment.save()
+    console.log(newComment)
+    res.status(201).json({message: "Comment added successfully", comment : newComment})
+  } catch (error) {
+    res.status(500).json({ error: 'Error adding comment' });  
+  }
+}
+
+
+export const getComment=async(req, res)=>{
+  try {
+    const{id} = req.params
+    const postId = id
+    // console.log(id, "postId")
+    const comment = await Comment.find({postId})
+    // console.log(object)
+
+    res.status(200).json(comment)
+  } catch (error) {
+    console.log("Error fetching comments")
+    res.status(500).json({ error: 'Error fetching comments' });
+  }
 }
