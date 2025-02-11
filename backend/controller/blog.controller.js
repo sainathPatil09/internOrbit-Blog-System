@@ -3,6 +3,7 @@ import { mongoose } from "mongoose";
 import { Blog } from "../models/blog.model.js";
 import { v2 as cloudinary } from 'cloudinary';
 import { Comment } from "../models/comment.model.js";
+import { Like } from "../models/like.model.js";
 
 export const createBlog = async (req, res) => {
   try {
@@ -146,5 +147,43 @@ export const getComment=async(req, res)=>{
   } catch (error) {
     console.log("Error fetching comments")
     res.status(500).json({ error: 'Error fetching comments' });
+  }
+}
+
+
+export const like=async(req, res)=>{
+    try {
+      const{postId, userId} = req.body
+
+      const existingLike = await Like.findOne({postId, userId});
+      // console.log(existingLike)
+      if(existingLike){
+        return res.status(400).json({message: "Already liked the blog"})
+      }
+
+      if(!postId || !userId){
+        return res.status(400).json({message: "Please provide post and user id"})
+      }
+
+      const newLike = new Like({postId, userId});
+      await newLike.save()
+
+      res.status(201).json({message: "Liked blog successfully", like: newLike})
+    } catch (error) {
+      console.log("Error adding like")
+      res.status(500).json({ error: 'Error adding like' });
+    }
+}
+
+export const getLike=async(req, res)=>{
+  try {
+    const{postId} = req.params
+    // console.log(postId, "PostId")
+    const data = await Like.find({postId})  
+    // console.log(data);
+    res.json(data)
+  } catch (error) {
+    console.log("Error fetching likes")
+    res.status(500).json({ error: 'Error fetching likes' });
   }
 }
