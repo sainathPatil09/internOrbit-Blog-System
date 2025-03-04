@@ -4,6 +4,8 @@ import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 
 const MyBlogs = () => {
+  const apiUrl = import.meta.env.VITE_REACT_APP_API_URL;
+  console.log(apiUrl)
   const [myBlogs, SetmyBlogs] = useState([]);
   console.log(myBlogs);
   const navigateTo = useNavigate();
@@ -11,7 +13,7 @@ const MyBlogs = () => {
     const fetchBlogs = async () => {
       try {
         const { data } = await axios.get(
-          "http://localhost:4001/api/blogs/my-blog",
+          `${apiUrl}/api/blogs/my-blog`,
           { withCredentials: true }
         );
         console.log(data);
@@ -25,7 +27,7 @@ const MyBlogs = () => {
 
   const handleDelete = async (id) => {
     await axios
-      .delete(`http://localhost:4001/api/blogs/delete/${id}`, {
+      .delete(`${apiUrl}/api/blogs/delete/${id}`, {
         withCredentials: true,
       })
       .then((res) => {

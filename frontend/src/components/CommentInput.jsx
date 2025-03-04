@@ -2,6 +2,8 @@ import axios from "axios";
 import React, { useState } from "react";
 
 const CommentInput = (probs) => {
+  const apiUrl = import.meta.env.VITE_REACT_APP_API_URL;
+  console.log(apiUrl)
   const [content, setContent] = useState("");
   console.log(probs);
 
@@ -9,7 +11,7 @@ const CommentInput = (probs) => {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        "http://localhost:4001/api/blogs/addComment",
+        `${apiUrl}/api/blogs/addComment`,
         { postId: probs.id, userId: probs.userId, content: content, name: probs.name }
       );
 

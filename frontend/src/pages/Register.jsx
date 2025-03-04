@@ -5,6 +5,8 @@ import axios from "axios";
 import { useAuth } from "../context/AuthProvider";
 
 const Register = () => {
+  const apiUrl = import.meta.env.VITE_REACT_APP_API_URL;
+  console.log(apiUrl)
   const navigateTo = useNavigate();
   const { isAuthenticated, setIsAuthenticated, setProfile } = useAuth()
 
@@ -41,7 +43,7 @@ const Register = () => {
 
     try {
       const { data } = await axios.post(
-        "http://localhost:4001/api/users/register",
+        `${apiUrl}/api/users/register`,
         formData,
         {
           withCredentials: true,

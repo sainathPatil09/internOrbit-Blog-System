@@ -7,6 +7,8 @@ import { CiMenuBurger } from "react-icons/ci";
 import { BiSolidLeftArrowAlt } from "react-icons/bi";
 
 const SideBar = ({ setComponent }) => {
+  const apiUrl = import.meta.env.VITE_REACT_APP_API_URL;
+  console.log(apiUrl)
   const { profile, setIsAuthenticated } = useAuth();
   const [show, setShow] = useState(false);
 
@@ -22,7 +24,7 @@ const SideBar = ({ setComponent }) => {
   const handleLogout = async () => {
     try {
       const { data } = await axios.get(
-        "http://localhost:4001/api/users/logout",
+        `${apiUrl}/api/users/logout`,
         { withCredentials: true }
       );
       setIsAuthenticated(false);

@@ -2,12 +2,14 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 
 const Creator = () => {
+  const apiUrl = import.meta.env.VITE_REACT_APP_API_URL;
+  console.log(apiUrl)
   const [admin, setAdmin] = useState([]);
 
   useEffect(() => {
     const fetchAdmins = async () => {
       const { data } = await axios.get(
-        "http://localhost:4001/api/users/admins",
+        `${apiUrl}/api/users/admins`,
         {
           withCredentials: true,
         }

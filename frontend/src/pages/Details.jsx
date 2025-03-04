@@ -9,6 +9,8 @@ import { FcLike } from "react-icons/fc";
 import { AiOutlineHeart } from "react-icons/ai";
 
 const Details = () => {
+  const apiUrl = import.meta.env.VITE_REACT_APP_API_URL;
+  console.log(apiUrl)
   const { id } = useParams();
   const { profile } = useAuth();
   const [blogs, setBlogs] = useState({});
@@ -42,7 +44,7 @@ const Details = () => {
     const fetchComment = async () => {
       try {
         const { data } = await axios.get(
-          `http://localhost:4001/api/blogs/getComment/${id}`
+          `${apiUrl}/api/blogs/getComment/${id}`
         );
         // console.log(data)
         setComments(data);
@@ -53,7 +55,7 @@ const Details = () => {
 
     const fetchLikes =async ()=>{
         try {
-            const {data} = await axios.get(`http://localhost:4001/api/blogs/getLike/${id}`)
+            const {data} = await axios.get(`${apiUrl}/api/blogs/getLike/${id}`)
             console.log(data)
             setLikeCount(data.length)
             likedFun(data)

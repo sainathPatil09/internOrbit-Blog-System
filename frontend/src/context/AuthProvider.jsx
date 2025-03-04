@@ -4,6 +4,8 @@ import { createContext, useContext, useEffect, useState } from "react";
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
+  const apiUrl = import.meta.env.VITE_REACT_APP_API_URL;
+  console.log(apiUrl)
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [profile, setProfile] = useState();
   const [loading, setLoading] = useState(true);
@@ -17,7 +19,7 @@ export const AuthProvider = ({ children }) => {
       if (token) {
         try {
           const { data } = await axios.get(
-            "http://localhost:4001/api/users/my-profile",
+            `${apiUrl}/api/users/my-profile`,
             {
               withCredentials: true,
               headers: {
@@ -40,7 +42,7 @@ export const AuthProvider = ({ children }) => {
     const fetchBlogs = async () => {
       try {
         const { data } = await axios.get(
-          "http://localhost:4001/api/blogs/all-blogs",
+          `${apiUrl}/api/blogs/all-blogs`,
           { withCredentials: true }
         );
         console.log(data)

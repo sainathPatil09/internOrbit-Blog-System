@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import toast from "react-hot-toast";
 
 const CreateBlog = () => {
+  const apiUrl = import.meta.env.VITE_REACT_APP_API_URL;
+  console.log(apiUrl)
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState("");
   const [about, setAbout] = useState("");
@@ -31,7 +33,7 @@ const CreateBlog = () => {
 
     try {
       const { data } = await axios.post(
-        "http://localhost:4001/api/blogs/create",
+        `${apiUrl}/api/blogs/create`,
         formData,
         {
           withCredentials: true,

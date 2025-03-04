@@ -4,6 +4,8 @@ import toast from "react-hot-toast";
 import { useNavigate, useParams } from "react-router-dom";
 
 const UpdateBlog = () => {
+  const apiUrl = import.meta.env.VITE_REACT_APP_API_URL;
+  console.log(apiUrl)
   const { id } = useParams();
   const navigateTo = useNavigate();
 
@@ -28,7 +30,7 @@ const UpdateBlog = () => {
     const fetchBlog = async () => {
       try {
         const { data } = await axios.get(
-          `http://localhost:4001/api/blogs/single-blog/${id}`,
+          `${apiUrl}/api/blogs/single-blog/${id}`,
           {
             withCredentials: true,
             headers: {
@@ -65,7 +67,7 @@ const UpdateBlog = () => {
 
     try {
       const { data } = await axios.put(
-        `http://localhost:4001/api/blogs/update/${id}`,
+        `${apiUrl}/api/blogs/update/${id}`,
         formData,
         {
           withCredentials: true,
