@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  frontend:
+    build: ./frontend
+    ports:
+      - "5173:5173"  # Map container's port 80 to host's 5173
+    depends_on:
+      - backend
+
+  backend:
+    build: ./backend
+    ports:
+      - "4001:4001"
+    environment:
+      - MONGO_URI=mongodb+srv://wiings090:0XBgdDd8Kb2WaiEV@cluster0.x0ztt.mongodb.net/blog-app

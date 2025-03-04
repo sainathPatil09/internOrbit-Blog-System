@@ -36,6 +36,10 @@ try {
   console.log(error);
 }
 
+app.get('/',(req, res)=>{
+  res.send("Hello");
+})
+
 app.use("/api/users",userRoute)
 app.use("/api/blogs",blogRoute)
 
