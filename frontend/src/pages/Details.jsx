@@ -25,7 +25,7 @@ const Details = () => {
     const fetchBlog = async () => {
       try {
         const { data } = await axios.get(
-          `http://localhost:4001/api/blogs/single-blog/${id}`,
+          `${apiUrl}/api/blogs/single-blog/${id}`,
           {
             withCredentials: true,
             headers: {

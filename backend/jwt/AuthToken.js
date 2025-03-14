@@ -6,10 +6,15 @@ const createTokenAndSaveCookies = async(userId, res)=>{
         expiresIn:"30d"
     })
     res.cookie("jwt",token,{
-        httpOnly:false,
-        secure:true,
-        sameSite:"none",
-        path:'/'
+        // httpOnly:false,
+        // secure:true,
+        // sameSite:"none",
+        // path:'/'
+
+        httpOnly: true,  // ✅ Prevents JavaScript access
+        secure: false,   // ✅ Works on HTTP (change to true when using HTTPS)
+        sameSite: "lax", // ✅ "lax" is safer & works for most cases
+        path: "/"
 
     })
 

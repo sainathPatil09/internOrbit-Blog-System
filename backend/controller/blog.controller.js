@@ -73,7 +73,7 @@ export const deleteBlog=async(req, res)=>{
 
 export const getAllBlogs=async(req, res)=>{
     const allBlogs = await Blog.find();
-    console.log(allBlogs)
+    // console.log(allBlogs)
     res.status(200).json(allBlogs)
 }
 

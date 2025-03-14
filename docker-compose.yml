@@ -5,6 +5,8 @@ services:
     build: ./frontend
     ports:
       - "5173:5173"  # Map container's port 80 to host's 5173
+    networks:
+      - blog
     depends_on:
       - backend
 
@@ -12,5 +14,11 @@ services:
     build: ./backend
     ports:
       - "4001:4001"
-    environment:
-      - MONGO_URI=mongodb+srv://wiings090:0XBgdDd8Kb2WaiEV@cluster0.x0ztt.mongodb.net/blog-app
+    networks:
+      - blog
+    # environment:
+    #   - MONGO_URI=mongodb+srv://wiings090:0XBgdDd8Kb2WaiEV@cluster0.x0ztt.mongodb.net/blog-app
+  
+networks:
+  blog:
+    driver: bridge
