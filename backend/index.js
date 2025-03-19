@@ -7,12 +7,14 @@ import cookieParser from "cookie-parser";
 import fileUpload from "express-fileupload";
 import cors from 'cors'
 import { v2 as cloudinary } from 'cloudinary'; 
+import path from "path";
 
 const app = express();
 dotenv.config()
 
 const port = process.env.PORT;
 const MONGO_URL = process.env.MONGO_URI;
+const __dirname = path.resolve();
 
 //Middleware
 app.use(express.json());
@@ -42,6 +44,14 @@ app.get('/',(req, res)=>{
 
 app.use("/api/users",userRoute)
 app.use("/api/blogs",blogRoute)
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "../frontend/dist")));
+
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "../frontend", "dist", "index.html"));
+  });
+}
 
 
 //cloudinary 
