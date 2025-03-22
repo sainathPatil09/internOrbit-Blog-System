@@ -4,7 +4,7 @@ services:
   frontend:
     build: ./frontend
     ports:
-      - "5173:5173"  # Map container's port 80 to host's 5173
+      - "5173:80"  # Map container's port 80 to host's 5173
     networks:
       - blog
     depends_on:
