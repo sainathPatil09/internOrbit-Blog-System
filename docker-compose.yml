@@ -16,8 +16,6 @@ services:
       - "4001:4001"
     networks:
       - blog
-    # environment:
-    #   - MONGO_URI=mongodb+srv://wiings090:0XBgdDd8Kb2WaiEV@cluster0.x0ztt.mongodb.net/blog-app
   
 networks:
   blog:

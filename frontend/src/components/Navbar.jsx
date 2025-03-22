@@ -7,6 +7,9 @@ import toast from 'react-hot-toast';
 import { useAuth } from "../context/AuthProvider";
 
 const Navbar = () => {
+  const apiUrl = import.meta.env.VITE_REACT_APP_NODE_ENV === "development" ?  import.meta.env.VITE_REACT_APP_API_URL : "/";
+  console.log(apiUrl)
+
   const [show, setshow] = useState(false);
   const { isAuthenticated, setIsAuthenticated, profile } = useAuth();
   console.log(profile);
@@ -18,7 +21,7 @@ const Navbar = () => {
 
     try {
       const { data } = await axios.get(
-        "http://localhost:4001/api/users/logout",
+        `${apiUrl}/api/users/logout`,
         { withCredentials: true }
       );
       setIsAuthenticated(false);
