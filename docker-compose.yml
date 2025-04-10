@@ -9,14 +9,38 @@ services:
       - blog
     depends_on:
       - backend
+    environment:
+      - VITE_REACT_APP_API_URL=http://localhost:4001
+      - VITE_REACT_APP_NODE_ENV=development
 
   backend:
     build: ./backend
     ports:
       - "4001:4001"
+    depends_on:
+      - mongo
+    networks:
+      - blog
+    environment:
+      - MONGO_URI=mongodb://admin:secret@mongo:27017/blog-db?authSource=admin
+
+      
+  
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=secret
+    volumes:
+      - mongodb_data:/data/db
     networks:
       - blog
   
 networks:
   blog:
     driver: bridge
+
+volumes:
+  mongodb_data:
