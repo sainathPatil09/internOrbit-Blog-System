@@ -1,0 +1,23 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: backend-deployment
+  namespace: blog-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+      - name: blogapp-backend
+        image: wiings09/blogapp-backend
+        ports:
+        - containerPort: 4001
+        env:
+          - name: MONGO_URI
+            value: mongodb://admin:secret@mongo:27017/blog-db?authSource=admin

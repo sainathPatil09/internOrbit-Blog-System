@@ -1,0 +1,11 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: backend
+  namespace: blog-app
+spec:
+  selector:
+    app: backend
+  ports:
+  - port: 4001
+    targetPort: 4001

@@ -10,8 +10,8 @@ services:
     depends_on:
       - backend
     environment:
-      - VITE_REACT_APP_API_URL=http://localhost:4001
-      - VITE_REACT_APP_NODE_ENV=development
+      - VITE_REACT_APP_API_URL=http://backend:4001
+      - VITE_REACT_APP_NODE_ENV=production
 
   backend:
     build: ./backend
