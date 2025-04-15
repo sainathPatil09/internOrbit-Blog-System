@@ -14,6 +14,7 @@ dotenv.config()
 
 const port = process.env.PORT;
 const MONGO_URL = process.env.MONGO_URI;
+const frontendURL = process.env.FRONTEND_URL
 const __dirname = path.resolve();
 
 //Middleware
@@ -31,12 +32,23 @@ app.use(fileUpload({
 }))
 
 
-try {
-  mongoose.connect(MONGO_URL);
-  console.log("connected to MONGODB");
-} catch {
-  console.log(error);
-}
+const connectDB = async () => {
+  try {
+    console.log(MONGO_URL)
+    console.log(frontendURL)
+
+    await mongoose.connect(MONGO_URL, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+    console.log('✅ Connected to MongoDB');
+  } catch (error) {
+    console.error('❌ MongoDB connection error:', error.message);
+    process.exit(1); // optional: exit app if DB connection fails
+  }
+};
+
+connectDB();
 
 app.get('/',(req, res)=>{
   res.send("Hello");
