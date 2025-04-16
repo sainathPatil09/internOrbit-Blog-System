@@ -9,7 +9,7 @@ import { FcLike } from "react-icons/fc";
 import { AiOutlineHeart } from "react-icons/ai";
 
 const Details = () => {
-  const apiUrl = import.meta.env.VITE_REACT_APP_NODE_ENV === "development" ?  import.meta.env.VITE_REACT_APP_API_URL : "/";
+  const apiUrl = import.meta.env.VITE_REACT_APP_API_URL
   console.log(apiUrl)
   const { id } = useParams();
   const { profile } = useAuth();

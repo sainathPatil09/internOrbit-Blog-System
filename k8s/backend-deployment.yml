@@ -19,5 +19,19 @@ spec:
         ports:
         - containerPort: 4001
         env:
+          - name: PORT
+            value: "4001"
           - name: MONGO_URI
-            value: mongodb://admin:secret@mongo:27017/blog-db?authSource=admin
+            value: "mongodb://mongo:27017/blog-db"
+          - name: CLOUD_NAME
+            value: "ddtpareis"
+          - name: CLOUD_API_KEY
+            value: "911794411167976"
+          - name: CLOUD_SECRET_KEY
+            value: "6iITPdBeV8q_CfUvhEDLIH_JQgE"
+          - name: JWT_SECRET_KEY
+            value: "9cAtQQD6Nv7fngeF49L+cncU7DfR23V6y/rhoX6aL9k="
+          - name: FRONTEND_URL
+            value: "http://frontend:5173"
+          - name: NODE_ENV
+            value: production

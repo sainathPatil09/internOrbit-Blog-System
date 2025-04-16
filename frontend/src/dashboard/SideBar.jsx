@@ -7,7 +7,7 @@ import { CiMenuBurger } from "react-icons/ci";
 import { BiSolidLeftArrowAlt } from "react-icons/bi";
 
 const SideBar = ({ setComponent }) => {
-  const apiUrl = import.meta.env.VITE_REACT_APP_NODE_ENV === "development" ?  import.meta.env.VITE_REACT_APP_API_URL : "/";
+  const apiUrl = import.meta.env.VITE_REACT_APP_API_URL
   console.log(apiUrl)
   const { profile, setIsAuthenticated } = useAuth();
   const [show, setShow] = useState(false);

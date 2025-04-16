@@ -5,7 +5,7 @@ import axios from "axios";
 import { useAuth } from "../context/AuthProvider";
 
 const Register = () => {
-  const apiUrl = import.meta.env.VITE_REACT_APP_NODE_ENV === "development" ?  import.meta.env.VITE_REACT_APP_API_URL : "/";
+  const apiUrl = import.meta.env.VITE_REACT_APP_API_URL
   console.log(apiUrl)
   const navigateTo = useNavigate();
   const { isAuthenticated, setIsAuthenticated, setProfile } = useAuth()

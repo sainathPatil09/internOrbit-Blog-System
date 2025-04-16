@@ -4,7 +4,7 @@ import toast from "react-hot-toast";
 import { useNavigate, useParams } from "react-router-dom";
 
 const UpdateBlog = () => {
-  const apiUrl = import.meta.env.VITE_REACT_APP_NODE_ENV === "development" ?  import.meta.env.VITE_REACT_APP_API_URL : "/";
+  const apiUrl = import.meta.env.VITE_REACT_APP_API_URL
   console.log(apiUrl)
   const { id } = useParams();
   const navigateTo = useNavigate();

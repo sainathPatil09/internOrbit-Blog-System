@@ -17,12 +17,7 @@ spec:
       - name: blogapp-mongodb
         image: mongo:latest
         ports:
-        - containerPort: 27017
-        env:
-        - name: MONGO_INITDB_ROOT_USERNAME
-          value: admin
-        - name: MONGO_INITDB_ROOT_PASSWORD
-          value: secret
+        - containerPort: 27017  
       volumes:
       - name: mongo-data
         persistentVolumeClaim:
