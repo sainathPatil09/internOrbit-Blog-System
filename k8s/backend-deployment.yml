@@ -32,6 +32,6 @@ spec:
           - name: JWT_SECRET_KEY
             value: "9cAtQQD6Nv7fngeF49L+cncU7DfR23V6y/rhoX6aL9k="
           - name: FRONTEND_URL
-            value: "http://frontend:5173"
+            value: "http://local:5173"
           - name: NODE_ENV
             value: production

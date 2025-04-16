@@ -1,6 +1,12 @@
 # Stage 1
 FROM node:22.14.0-alpine AS builder
 
+# Accept build-time environment variable
+ARG VITE_REACT_APP_API_URL
+
+# Expose it to Vite build process
+ENV VITE_REACT_APP_API_URL=http://localhost:4001
+
 WORKDIR /app
 
 COPY package.* ./
