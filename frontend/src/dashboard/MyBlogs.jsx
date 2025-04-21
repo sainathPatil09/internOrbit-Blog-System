@@ -4,7 +4,7 @@ import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 
 const MyBlogs = () => {
-  const apiUrl = import.meta.env.VITE_REACT_APP_API_URL
+  const apiUrl = window.env?.VITE_REACT_APP_API_URL
   console.log(apiUrl)
   const [myBlogs, SetmyBlogs] = useState([]);
   console.log(myBlogs);

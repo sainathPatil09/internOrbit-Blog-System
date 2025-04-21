@@ -15,9 +15,9 @@ spec:
     spec:
       containers:
         - name: blogapp-frontend
-          image: wiings09/blogapp-frontend
+          image: wiings09/frontend-blogapp
           ports:
           - containerPort: 80
           env:
             - name: VITE_REACT_APP_API_URL
-              value: http://localhost:4001
+              value: http://52.66.161.163:4001

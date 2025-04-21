@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import toast from "react-hot-toast";
 
 const CreateBlog = () => {
-  const apiUrl = import.meta.env.VITE_REACT_APP_API_URL
+  const apiUrl = window.env?.VITE_REACT_APP_API_URL
   console.log(apiUrl)
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState("");

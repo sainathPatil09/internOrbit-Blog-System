@@ -4,7 +4,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const apiUrl = import.meta.env.VITE_REACT_APP_API_URL
+  const apiUrl = window.env?.VITE_REACT_APP_API_URL
   console.log(apiUrl)
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [profile, setProfile] = useState();

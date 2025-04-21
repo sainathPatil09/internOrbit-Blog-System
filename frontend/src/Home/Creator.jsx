@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 
 const Creator = () => {
-  const apiUrl = import.meta.env.VITE_REACT_APP_API_URL
+  const apiUrl = window.env?.VITE_REACT_APP_API_URL
   console.log(apiUrl)
   const [admin, setAdmin] = useState([]);
 

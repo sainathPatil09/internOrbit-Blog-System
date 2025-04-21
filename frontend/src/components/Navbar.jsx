@@ -7,7 +7,7 @@ import toast from 'react-hot-toast';
 import { useAuth } from "../context/AuthProvider";
 
 const Navbar = () => {
-  const apiUrl = import.meta.env.VITE_REACT_APP_API_URL
+  const apiUrl = window.env?.VITE_REACT_APP_API_URL
   console.log(apiUrl)
 
   const [show, setshow] = useState(false);

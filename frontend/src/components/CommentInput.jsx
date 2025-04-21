@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 
 const CommentInput = (probs) => {
-  const apiUrl = import.meta.env.VITE_REACT_APP_API_URL
+  const apiUrl = window.env?.VITE_REACT_APP_API_URL
   console.log(apiUrl)
   const [content, setContent] = useState("");
   console.log(probs);
