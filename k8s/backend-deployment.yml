@@ -26,11 +26,11 @@ spec:
           - name: CLOUD_NAME
             value: "ddtpareis"
           - name: CLOUD_API_KEY
-            value: "911794411167976"
+            value: "your-key"
           - name: CLOUD_SECRET_KEY
-            value: "6iITPdBeV8q_CfUvhEDLIH_JQgE"
+            value: "your-secret-key"
           - name: JWT_SECRET_KEY
-            value: "9cAtQQD6Nv7fngeF49L+cncU7DfR23V6y/rhoX6aL9k="
+            value: "your-secret-key"
           - name: FRONTEND_URL
             value: "http://65.2.31.80:5173"
           - name: NODE_ENV
