@@ -20,4 +20,4 @@ spec:
           - containerPort: 80
           env:
             - name: VITE_REACT_APP_API_URL
-              value: http://52.66.161.163:4001
+              value: http://65.2.31.80:4001
